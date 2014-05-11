@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Aling Nena's Sari-sari store</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/admin.css" rel="stylesheet">
+	</head>
+<body>
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Aling Nena's Sari-Sari Store</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <br/><br/><br/>
+    <div class="admin">
+        <h1><%= @product.new_record? ? "Create New Product" : "Purchase #{@product.name}" %></h1>
+        <form role="form" method="POST" action="<%= @product.new_record? ? '/create_product' : "/products/buy/#{@product.id}" %>">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <label for="name" class="col-sm-2 control-label"> <%= @product.name %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-sm-2 control-label">Total Cost</label>
+              <div class="col-sm-10">
+                <label for="name" class="col-sm-2 control-label"> <%= @total_cost %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-sm-2 control-label">Total Money Given</label>
+              <div class="col-sm-10">
+                <label for="name" class="col-sm-2 control-label"> <%= @money_given %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-sm-2 control-label">Change</label>
+              <div class="col-sm-10">
+                <label for="name" class="col-sm-2 control-label"> <%= @change %></label>
+              </div>
+            </div>
+            <h2> The break down of your change: </h2>            
+				<div>
+				</div>
+				<div class="form-group">
+					<label for="ones" class="col-sm-2 control-label">₱1 Coins:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:ones_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="fives" class="col-sm-2 control-label">₱5 Coins:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:fives_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="tens" class="col-sm-2 control-label">₱10 Bills:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:tens_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="twenties" class="col-sm-2 control-label">₱20 Bills:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:twenties_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="fifties" class="col-sm-2 control-label">₱50 Bills:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:fifties_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="hundreds" class="col-sm-2 control-label">₱100 Bills:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:hundreds_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="five_hundreds" class="col-sm-2 control-label">₱500 Bills:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:five_hundreds_bill]%></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="thousands" class="col-sm-2 control-label">₱1000 Bills:</label>
+					<div class="col-sm-10">
+						<label for="name" class="col-sm-2 control-label"> <%= @hash[:thousands_bill]%></label>
+					</div>
+				</div>
+				</div>
+				
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <a href="/" class="btn btn-default">Back to Product List</a>
+              </div>
+            </div>
+          </form>
+
+      </div>
+
+    </div>
+  </body>
+</html>

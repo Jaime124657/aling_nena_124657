@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Aling Nena's Sari-sari store</title>
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/admin.css" rel="stylesheet">
+	</head>
+<body>
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Aling Nena's Sari-Sari Store</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <br/><br/><br/>
+    <div class="container">
+
+      <div class="admin">
+        <h1><%= @product.new_record? ? "Create New Product" : "Purchase #{@product.name}" %></h1>
+        <form role="form" method="POST" action="<%= @product.new_record? ? '/create_product' : "/product_buy/#{@product.id}" %>">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <label for="name" class="col-sm-2 control-label"> <%= @product.name %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-sm-2 control-label">Price</label>
+              <div class="col-sm-10">
+                <label for="name" class="col-sm-2 control-label"> <%= @product.price %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quantity" class="col-sm-2 control-label">Quantity available:</label>
+              <div class="col-sm-10">
+					 <label for="name" class="col-sm-2 control-label"> <%= @product.quantity %></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quantity" class="col-sm-2 control-label">Quantity to be Purchased:</label>
+              <div class="col-sm-10">
+					 <input type="text" class="form-control" name="quantity_purchased" placeholder="Enter quantity of product" value="<%= @product.quantity %>">
+              </div>
+            </div>
+            <div>
+              <h2> Select the amount of denominations that you will use to purchase the selected product. </h2>
+				</div>
+				<div>
+				</div>
+				<div class="form-group">
+					<label for="ones" class="col-sm-2 control-label">₱1</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="ones" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="fives" class="col-sm-2 control-label">₱5</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="fives" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="tens" class="col-sm-2 control-label">₱10</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="tens" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="twenties" class="col-sm-2 control-label">₱20</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="twenties" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="fifties" class="col-sm-2 control-label">₱50</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="fifties" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="hundreds" class="col-sm-2 control-label">₱100</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="hundreds" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="five_hundreds" class="col-sm-2 control-label">₱500</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="five_hundreds" value=0>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="thousands" class="col-sm-2 control-label">₱1000</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="thousands" value=0>
+					</div>
+				</div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default btn-primary"><%= @product.new_record? ? "Create New Product" : "Purchase #{@product.name}" %></button>
+                <a href="/" class="btn btn-default">Back to Product List</a>
+              </div>
+            </div>
+          </form>
+
+      </div>
+
+    </div>
+
+
+<!-- /.container -->
+  </body>
+</html>
